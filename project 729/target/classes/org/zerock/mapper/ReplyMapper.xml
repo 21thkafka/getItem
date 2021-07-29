@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.ReplyMapper"><!-- 자바 인터페이스 -->
+	
+	<insert id="insert">
+	insert into tbl_reply (bno, reply, replyer) values (#{bno}, #{reply}, #{replyer})
+	</insert>
+	<select id="read" resultType="org.zerock.domain.ReplyVO">
+	select * from tbl_reply where rno = #{rno}
+	</select>
+	<delete id="delete">
+		delete from tbl_reply where rno = #{rno}
+	</delete>
+	<update id="update">
+	update tbl_reply set reply = #{reply} where rno = #{rno}
+	</update>
+	
+	<!-- 정책 사항: 댓글 목록은 오래전에 작성된 댓글이 먼저 보이도록 페이징 처리 
+		내가 어떻게 보여줄 것인지를 정하기 나름이다.
+	-->
+	<!-- <select id="getListWithPaging" resultType="org.zerock.domain.ReplyVO">
+	 select rno, bno, reply, replyer, replyDate, updatedate from tbl_reply
+	 where bno = #{bno} order by rno asc
+	</select> -->
+	<select id="getListWithPaging" resultType="org.zerock.domain.ReplyVO">
+	 select * from tbl_reply where bno = #{bno} order by rno asc limit #{cri.pageStart}, #{cri.amount}
+	</select>
+	
+	<select id="getCountByBno" resultType="int">
+	select count(rno) from tbl_reply where bno = #{bno}
+	</select>
+</mapper>

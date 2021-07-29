@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>급처득템</title>       
+<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="form-wrap">
+                <div class="title">
+                    <h1>급처득템</h1>
+                </div>
+                <div class="button-wrap">
+                    <div id="btn"></div>
+                    <button type="button" class="togglebtn" onclick="login()">LOG IN</button>
+                    <button type="button" class="togglebtn" onclick="register()">REGISTER</button>
+                </div>
+                <div class="social-icons">
+                    <img src="img/fb.png" alt="facebook">
+                    <img src="img/tw.png" alt="twitter">
+                    <img src="img/gl.png" alt="google">
+                </div>
+                <form id="login" action="" class="input-group">
+                    <input type="id" class="input-field" placeholder="아이디를 입력해주세요." required>
+                    <input type="password" class="input-field" placeholder="비밀번호를 입력해주세요." required>
+                    <input type="checkbox" class="checkbox"><span>Remember Password</span>
+                    <button class="submit">Login</button>
+                </form>
+                <form id="register" action="" class="input-group">
+                    <input type="name" class="input-field" placeholder="이름(한글 또는 영문으로 입력해주세요.)" required>
+                    <input type="id" class="input-field2" placeholder="아이디를 입력해주세요." required>
+                    <button class="abtn">중복확인</button>
+                    <input type="password" class="input-field" placeholder="비밀번호를 입력해주세요." required>
+                    <div class="adressall">
+                    <input type="adress" class="input-field2" placeholder="주소를 입력해주세요." required>
+                    <button type="button" class="abtn">주소찾기</button>
+                    </div>
+                    <input type="checkbox" class="checkbox"><span>약관 동의하기</span>
+                    <a href class="conditions">약관 보기</a>
+                    <button class="submit">REGISTER</button>
+                </form>
+            </div>
+        </div>
+        <script>
+            var x = document.getElementById("login");
+            var y = document.getElementById("register");
+            var z = document.getElementById("btn");
+            
+            
+            function login(){
+                x.style.left = "50px";
+                y.style.left = "450px";
+                z.style.left = "0";
+            }
+
+            function register(){
+                x.style.left = "-400px";
+                y.style.left = "50px";
+                z.style.left = "110px";
+            }
+        </script>
+    </body>
+</html> 
